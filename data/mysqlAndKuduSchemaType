@@ -1,0 +1,12 @@
+bigint,bigint
+int,int
+smallint,int
+tinyint,tinyint
+decimal,double
+double,double
+char,string
+varchar,string
+nvarchar,string
+text,string
+bit(1),string
+datetime,timestamp
