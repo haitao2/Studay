@@ -7,6 +7,15 @@
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/DataCollector/pom.xml" />
+        <option value="$PROJECT_DIR$/KafkaDataProducer/pom.xml" />
+        <option value="$PROJECT_DIR$/Spark_Streaming/pom.xml" />
+        <option value="$PROJECT_DIR$/Structured_Streaming/pom.xml" />
+        <option value="$PROJECT_DIR$/user_analysis/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
