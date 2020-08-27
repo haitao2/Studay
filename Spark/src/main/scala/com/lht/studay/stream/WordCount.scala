@@ -8,6 +8,7 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
 import scala.concurrent.duration.Duration
 
 object WordCount extends App {
+
   val sparkConf = new SparkConf().setAppName("streamTest").setMaster("local[2]")
   // 批处理周期
   val ssc = new StreamingContext(sparkConf, Seconds(2))
