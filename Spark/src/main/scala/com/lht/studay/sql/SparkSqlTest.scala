@@ -1,3 +1,5 @@
+package com.lht.studay.sql
+
 import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
@@ -39,5 +41,3 @@ object SparkSqlTest extends App {
   spark.sql("select id,addName(name),changeAge(age) from student").show()
 case class Student(id:Int,name:String)
 }
-
-
