@@ -10,5 +10,8 @@ class MockDataService extends TService {
   override def analysis(): Any = {
     // todo 生成数据
     //   发送给kafka数据
+    // mockDataDao.getMockData().foreach(println)
+    import mockDataDao._
+    mockDataDao.write2Kafka
   }
 }

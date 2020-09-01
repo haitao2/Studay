@@ -7,7 +7,6 @@ import com.lht.summer.framework.util.{EnvUtil, PropertiesUtil}
 import org.apache.spark.streaming.{Duration, Seconds, StreamingContext}
 import org.apache.spark.{SparkConf, SparkContext}
 
-
 trait TApplication {
   var eventData: Any = null
 
@@ -16,7 +15,8 @@ trait TApplication {
    * 1.环境的初始化
    */
   def start(t: String = "jdbc")(op: => Unit)(implicit time: Duration = Seconds(3)): Unit = {
-    val prop = PropertiesUtil("default.properties")
+
+    val prop = PropertiesUtil
     if (t == "socket") {
       eventData = new Socket(prop.getValue("server.host"), prop.getValue("server.port").toInt)
     } else if (t == "serverSocket") {
@@ -24,14 +24,14 @@ trait TApplication {
     } else if (t == "spark") {
       eventData = EnvUtil.getEnv()
     } else if (t == "sparkStreaming") {
-      val conf = new SparkConf().setMaster("local[2]").setAppName("stringApplication")
-      eventData = new StreamingContext(conf, time)
+      println("构建SparkStreaming")
+      eventData = EnvUtil.getStreamEnv()
     }
     // 2.业务逻辑
     try {
       op
     } catch {
-      case ex: Exception => println("业务执行失败:" + ex.getMessage)
+      case ex: Exception => println("业务执行失败:" + ex.printStackTrace())
     }
     // 3.环境关闭
     if (t == "socket") {
